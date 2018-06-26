@@ -29,12 +29,12 @@ else
 
 try
 {
-    $pro_name = $_POST['name'];
-    $pro_price = $_POST['price'];
-    $pro_gazou_name = $_POST['gazou'];
+    require_once('../common/common.php');
 
-    $pro_name = htmlspecialchars($pro_name);
-    $pro_price = htmlspecialchars($pro_price);
+    $post = sanitize($_POST);
+    $pro_name = $post['name'];
+    $pro_price = $post['price'];
+    $pro_gazou_name = $post['gazou'];
 
     $dsn = 'mysql:dbname=shop;host=localhost';
     $user = 'root';

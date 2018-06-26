@@ -29,15 +29,14 @@ else
 
 try
 {
-    $pro_code = $_POST['code'];
-    $pro_name = $_POST['name'];
-    $pro_price = $_POST['price'];
-    $pro_gazou_name_old = $_POST['gazou_name_old'];
-    $pro_gazou_name = $_POST['gazou_name'];
+    require_once('../common/common.php');
 
-    $pro_code = htmlspecialchars($pro_code);
-    $pro_name = htmlspecialchars($pro_name);
-    $pro_price = htmlspecialchars($pro_price);
+    $post = sanitize($_POST);
+    $pro_code = $post['code'];
+    $pro_name = $post['name'];
+    $pro_price = $post['price'];
+    $pro_gazou_name_old = $post['gazou_name_old'];
+    $pro_gazou_name = $post['gazou_name'];
 
     $dsn = 'mysql:dbname=shop;host=localhost';
     $user = 'root';
