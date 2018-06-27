@@ -37,10 +37,13 @@ $pro_code = $_GET['procode'];
 if (isset($_SESSION['cart']) == true)
 {
     $cart = $_SESSION['cart'];
+    $kazu = $_SESSION['kazu'];
 }
 
 $cart[] = $pro_code;
+$kazu[] = 1;
 $_SESSION['cart'] = $cart;
+$_SESSION['kazu'] = $kazu;
 
 }
 catch (Exception $e)
