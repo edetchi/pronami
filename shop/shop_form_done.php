@@ -72,6 +72,10 @@ for($i = 0; $i < $max; $i++)
     $honbun .=$shokei."円\n";
 }
 
+$sql = 'LOCK TABLES dat_sales, dat_sales_product WRITE';
+$stmt = $dbh->prepare($sql);
+$stmt->execute();
+
 $sql = 'INSERT INTO dat_sales (code_member, name, email, postal1, postal2, address, tel) VALUES (?, ?, ?, ?, ?, ?, ?)';
 $stmt = $dbh->prepare($sql);
 $data = array();
@@ -101,6 +105,10 @@ for ($i = 0; $i < $max; $i++)
     $data[] = $kazu[$i];
     $stmt->execute($data);
 }
+
+$sql = 'UNLOCK TABLES';
+$stmt = $dbh->prepare($sql);
+$stmt->execute();
 
 $dbh = null;
 
@@ -142,6 +150,9 @@ catch(Exception $e)
     exit();
 }
  ?>
+
+<br>
+<a href="shop_list,php">商品画面へ</a>
 
 </body>
 
