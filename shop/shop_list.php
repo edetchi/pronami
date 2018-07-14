@@ -12,7 +12,7 @@ else
     print 'ようこそ';
     print $_SESSION['member_name'];
     print '様 ';
-    print '<a href="member_logout.html">ログアウト</a>';
+    print '<a href="member_logout.php">ログアウト</a>';
     print '<br>';
 }
 ?>
