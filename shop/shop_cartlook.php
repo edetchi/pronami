@@ -12,7 +12,7 @@ else
     print 'ようこそ';
     print $_SESSION['member_name'];
     print '様 ';
-    print '<a href="member_logout.html">ログアウト</a>';
+    print '<a href="member_logout.php">ログアウト</a>';
     print '<br>';
 }
 ?>
@@ -119,6 +119,13 @@ catch (Exception $e)
 </form>
 <br>
 <a href="shop_form.html">ご購入手続きへ進む</a>
+
+<?php
+    if(isset($_SESSION["member_login"]) == true)
+    {
+        print '<a href="shop_kantan_check.php">会員かんたん注文へ進む</a><br>';
+    }
+?>
 
 </body>
 
